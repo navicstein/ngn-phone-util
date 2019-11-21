@@ -8,8 +8,8 @@ export let networks = {
   multilinks: ['07027', '0709'],
   zoom: ['0707'],
   ntel: ['0804']
-}
+};
 
 export function err(what: string): string {
-  return what
+  return what;
 }

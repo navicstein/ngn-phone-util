@@ -1,11 +1,11 @@
 {
-  "name": "mobile-detect",
-  "version": "0.0.0",
+  "name": "ngn-phone-util",
+  "version": "0.0.1",
   "description": "",
   "keywords": [],
-  "main": "dist/mobile-detect.umd.js",
-  "module": "dist/mobile-detect.es5.js",
-  "typings": "dist/types/mobile-detect.d.ts",
+  "main": "dist/ngn-phone-util.umd.js",
+  "module": "dist/ngn-phone-util.es5.js",
+  "typings": "dist/types/ngn-phone-util.d.ts",
   "files": [
     "dist"
   ],
@@ -19,12 +19,13 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "postinstall": "npm test",
+    "lint": "tslint  --fix --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
     "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
     "start": "rollup -c rollup.config.ts -w",
-    "test": "jest --coverage",
-    "test:watch": "jest --coverage --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "test:prod": "npm run lint && npm run test -- --no-cache",
     "deploy-docs": "ts-node tools/gh-pages-publish",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
@@ -73,7 +74,7 @@
     ]
   },
   "prettier": {
-    "semi": false,
+    "semi": true,
     "singleQuote": true
   },
   "commitlint": {
